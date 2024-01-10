@@ -292,6 +292,8 @@ esp_loader_error_t esp_loader_flash_verify(void);
   */
 void esp_loader_reset_target(void);
 
+void esp_loader_read_mac(uint8_t *mac);
+
 
 
 #ifdef __cplusplus

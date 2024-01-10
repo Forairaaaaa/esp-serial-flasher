@@ -201,7 +201,8 @@ static esp_loader_error_t spi_flash_command(spi_flash_cmd_t cmd, void *data_tx, 
     return ESP_LOADER_SUCCESS;
 }
 
-static esp_loader_error_t detect_flash_size(size_t *flash_size)
+// static esp_loader_error_t detect_flash_size(size_t *flash_size)
+esp_loader_error_t detect_flash_size(size_t *flash_size)
 {
     /* There is no rule manufacturers have to follow for assigning these parts of the flash ID,
        these constants have been taken from esptool source code. */
@@ -453,4 +454,9 @@ esp_loader_error_t esp_loader_flash_verify(void)
 void esp_loader_reset_target(void)
 {
     loader_port_reset_target();
+}
+
+void esp_loader_read_mac(uint8_t *mac)
+{
+    read_mac(s_target, mac);
 }
